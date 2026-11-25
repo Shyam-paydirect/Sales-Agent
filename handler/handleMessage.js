@@ -74,4 +74,6 @@ export async function handleMessage(client, msg) {
     conversations.delete(sender);
     return;
   }
+
+  console.log(`[skip] ${sender}: no active conversation and not a CRM lead (needs a "Full name:" line)`);
 }

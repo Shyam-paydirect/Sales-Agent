@@ -9,7 +9,10 @@ const client = createClient();
 
 client.on('message', async (msg) => {
   if (msg.fromMe) return;
-  if (msg.type !== 'chat') return;
+  if (msg.type !== 'chat') {
+    console.log(`[skip] ${msg.from}: unsupported type "${msg.type}"`);
+    return;
+  }
 
   log(msg.from, 'in', msg.body);
 
